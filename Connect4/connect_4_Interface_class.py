@@ -1,3 +1,4 @@
+import os
 from connect_4_exceptions import (
     WrongBoardDimensionsValueError,
     FullColumnError,
@@ -95,6 +96,7 @@ class Interface:
         print('To save a game enter "s"!')
         game = self.game
         while not (game.check_victory_player1() or game.check_victory_player2()):
+            os.system('clear')
             save_condition = self.player_move(1)
             if save_condition == 'save':
                 save_game(game, False, tour)
@@ -151,6 +153,7 @@ class Interface:
         bot = Bot(game)
         print('To save a game enter "s"!')
         while not (game.check_victory_player1() or game.check_victory_player2()):
+            os.system('clear')
             save_condition = self.player_move(1)
             if save_condition == 'save':
                 save_game(game, True, tour)
